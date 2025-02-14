@@ -1,7 +1,7 @@
 #include "list.h"
 #include <stdlib.h>
 
-node* create_node(void* data){
+static node* create_node(void* data){
     node* new_node = (node*)malloc(sizeof(node));
     new_node->data = data;
     new_node->next = NULL;
@@ -33,7 +33,7 @@ void print_list(list_head head, void (*print)(void*)){
     }
 }
 
-node* find_node(list_head head, void* data, node** prec,int (*compare)(void*, void*)){
+static node* find_node(list_head head, void* data, node** prec,int (*compare)(void*, void*)){
     node* current = head;
     *prec = NULL;
     while(current != NULL){
